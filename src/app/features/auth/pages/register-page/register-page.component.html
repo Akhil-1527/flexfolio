@@ -1,0 +1,16 @@
+<div class="register-page">
+    <div class="register-container">
+      <div class="brand-section">
+        <div class="logo">Flexfolio</div>
+        <h1>Start showcasing your creative work</h1>
+        <p>Join thousands of professionals who use Flexfolio to build their online presence.</p>
+      </div>
+      
+      <div class="form-section">
+        <app-register-form 
+          (formSubmit)="onRegisterSubmit($event)"
+          (navigateToLogin)="navigateToLogin()">
+        </app-register-form>
+      </div>
+    </div>
+  </div>

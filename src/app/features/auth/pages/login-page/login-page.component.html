@@ -1,0 +1,16 @@
+<div class="login-page">
+    <div class="login-container">
+      <div class="brand-section">
+        <div class="logo">Flexfolio</div>
+        <h1>Welcome to your professional portfolio platform</h1>
+        <p>Create, showcase, and share your work with the world.</p>
+      </div>
+      
+      <div class="form-section">
+        <app-login-form 
+          (formSubmit)="onLoginSubmit($event)"
+          (navigateToRegister)="navigateToRegister()">
+        </app-login-form>
+      </div>
+    </div>
+  </div>
