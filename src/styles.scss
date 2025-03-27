@@ -1,1 +1,95 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Fix Material form field styling */
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+/* Fix for icon buttons */
+button.mat-mdc-icon-button .mat-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Layout fixes for form field wrapper */
+.mat-mdc-text-field-wrapper {
+  height: auto !important;
+}
+
+/* Proper sizing for input */
+.mat-mdc-form-field-infix {
+  min-height: 48px !important;
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+}
+
+/* Fix icons in buttons */
+.mat-icon {
+  font-size: 24px !important;
+  width: 24px !important;
+  height: 24px !important;
+  line-height: 24px !important;
+}
+
+/* Remove focus outlines for mouse users, keep for keyboard navigation */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+.mat-mdc-form-field-icon-suffix {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .mat-icon {
+    font-family: 'Material Icons' !important;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px !important;  
+    line-height: 1 !important;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Fix for suffix icons in form fields */
+  [matSuffix] {
+    display: flex !important;
+  }

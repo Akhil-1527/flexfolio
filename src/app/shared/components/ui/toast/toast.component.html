@@ -1,0 +1,14 @@
+<div class="toast-container">
+    @for (toast of toastService.toasts(); track toast.id) {
+      <div 
+        @toastAnimation 
+        class="toast" 
+        [ngClass]="'toast-' + toast.type">
+        <mat-icon>{{ getIconForType(toast.type) }}</mat-icon>
+        <span class="toast-message">{{ toast.message }}</span>
+        <button mat-icon-button (click)="removeToast(toast.id)" aria-label="Close">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    }
+  </div>

@@ -1,0 +1,96 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+    <div class="form-header">
+      <h2>Create an account</h2>
+      <p>Join Flexfolio to showcase your work</p>
+    </div>
+    
+    <div class="form-content">
+      <!-- First Name field -->
+      <div class="form-field">
+        <label for="firstName">First Name*</label>
+        <input 
+          type="text" 
+          id="firstName"
+          formControlName="firstName" 
+          class="form-input">
+        <div class="error-message" *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched">
+          <span *ngIf="registerForm.get('firstName')?.hasError('required')">First name is required</span>
+          <span *ngIf="registerForm.get('firstName')?.hasError('minlength')">First name must be at least 2 characters</span>
+        </div>
+      </div>
+      
+      <!-- Last Name field -->
+      <div class="form-field">
+        <label for="lastName">Last Name*</label>
+        <input 
+          type="text" 
+          id="lastName"
+          formControlName="lastName" 
+          class="form-input">
+        <div class="error-message" *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched">
+          <span *ngIf="registerForm.get('lastName')?.hasError('required')">Last name is required</span>
+          <span *ngIf="registerForm.get('lastName')?.hasError('minlength')">Last name must be at least 2 characters</span>
+        </div>
+      </div>
+      
+      <!-- Email field -->
+      <div class="form-field">
+        <label for="email">Email*</label>
+        <input 
+          type="email" 
+          id="email"
+          formControlName="email" 
+          class="form-input">
+        <div class="error-message" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+          <span *ngIf="registerForm.get('email')?.hasError('required')">Email is required</span>
+          <span *ngIf="registerForm.get('email')?.hasError('email')">Please enter a valid email address</span>
+          <span *ngIf="registerForm.get('email')?.hasError('serverError')">This email is already registered</span>
+        </div>
+      </div>
+      
+      <!-- Password field -->
+      <div class="form-field">
+        <label for="password">Password*</label>
+        <div class="input-container">
+          <input 
+            [type]="hidePassword ? 'password' : 'text'" 
+            id="password" 
+            formControlName="password" 
+            class="form-input password-input">
+          <button 
+            type="button"
+            class="visibility-toggle"
+            (click)="togglePasswordVisibility()">
+            {{ hidePassword ? 'Show' : 'Hide' }}
+          </button>
+        </div>
+        <div class="error-message" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+          <span *ngIf="registerForm.get('password')?.hasError('required')">Password is required</span>
+          <span *ngIf="registerForm.get('password')?.hasError('minlength')">Password must be at least 8 characters</span>
+        </div>
+      </div>
+      
+      <div class="form-actions">
+        <button 
+          type="submit" 
+          mat-raised-button 
+          color="primary" 
+          class="submit-button" 
+          [disabled]="isLoading">
+          <span *ngIf="!isLoading">Create Account</span>
+          <mat-spinner *ngIf="isLoading" diameter="24"></mat-spinner>
+        </button>
+        
+        <div class="login-link">
+          <span>Already have an account?</span>
+          <button 
+            type="button" 
+            mat-button 
+            color="accent" 
+            (click)="onLoginClick()">
+            Sign in
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>

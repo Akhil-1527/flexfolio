@@ -1,0 +1,27 @@
+<div class="register-page">
+    <div class="register-container">
+      <div class="branding-section" @fadeSlideInOut>
+        <div class="logo">Flexfolio</div>
+        <h1>Create your portfolio</h1>
+        <p>Join thousands of professionals who use Flexfolio to showcase their work.</p>
+        <div class="illustration">
+          <!-- SVG illustration placeholder -->
+          <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+            <rect x="80" y="50" width="340" height="200" rx="10" fill="#3CCF91" opacity="0.2"/>
+            <rect x="120" y="80" width="260" height="140" rx="5" fill="#3CCF91" opacity="0.5"/>
+            <circle cx="250" cy="300" r="50" fill="#3CCF91" opacity="0.3"/>
+            <rect x="150" y="220" width="200" height="20" rx="5" fill="#3CCF91" opacity="0.4"/>
+            <rect x="180" y="250" width="140" height="15" rx="5" fill="#3CCF91" opacity="0.4"/>
+          </svg>
+        </div>
+      </div>
+      
+      <div class="form-section">
+        <app-register-form
+          #registerForm
+          (formSubmit)="onRegisterSubmit($event)"
+          (navigateToLogin)="navigateToLogin()">
+        </app-register-form>
+      </div>
+    </div>
+  </div>
